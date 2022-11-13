@@ -6,11 +6,11 @@ import { MovieCard } from 'components/MovieCard/MovieCard';
 
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 export const SearchingMoviesList = ({ query, state }) => {
   const [movies, setMovies] = useState([]);
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     fetchMovieByQuery(query).then(response => setMovies(response.results));

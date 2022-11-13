@@ -3,11 +3,11 @@ import { BsSearch } from 'react-icons/bs';
 
 import { useState } from 'react';
 import { SearchingMoviesList } from 'components/SearchingMoviesList/SearchingMoviesList';
-import { useLocation, useSearchParams } from 'react-router-dom';
+// import { useLocation, useSearchParams } from 'react-router-dom';
 
 export const Movies = () => {
   const [query, setQuery] = useState('');
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -19,7 +19,7 @@ export const Movies = () => {
     }
 
     setQuery(inputValue);
-    setSearchParams({ query: inputValue });
+    // setSearchParams({ query: inputValue });
 
     event.currentTarget.reset();
   };
