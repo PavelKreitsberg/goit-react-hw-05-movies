@@ -9,6 +9,8 @@
 
   color: white;
   border: 1px solid #007163;
+
+  cursor: pointer;
 }
 
 .MovieCard:hover,

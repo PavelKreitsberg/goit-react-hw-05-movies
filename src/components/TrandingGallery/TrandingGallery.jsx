@@ -2,7 +2,7 @@ import css from '../TrandingGallery/TrandingGallery.module.css';
 
 import { MovieCard } from 'components/MovieCard/MovieCard';
 
-import { fetchTrandingMovies } from 'components/API';
+import { fetchTrandingMovies } from 'services/API';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
