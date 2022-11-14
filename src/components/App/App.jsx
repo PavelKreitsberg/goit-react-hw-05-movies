@@ -15,27 +15,16 @@ const Reviews = lazy(() =>
 
 export const App = () => {
   return (
-    <div>
-      {/* <nav className="navigation">
-        <NavLink className="navigation__item" to="/">
-          Home
-        </NavLink>
-        <NavLink className="navigation__item" to="/movies">
-          Movies
-        </NavLink>
-      </nav> */}
-
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:id" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:id" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
-      </Routes>
-    </div>
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 };
