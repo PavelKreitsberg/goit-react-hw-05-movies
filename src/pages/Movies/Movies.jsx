@@ -1,13 +1,13 @@
 import css from '../Movies/Movies.module.css';
 import { BsSearch } from 'react-icons/bs';
 
-import { useState } from 'react';
 import { SearchingMoviesList } from 'components/SearchingMoviesList/SearchingMoviesList';
-// import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
-  const [query, setQuery] = useState('');
-  // const [searchParams, setSearchParams] = useSearchParams();
+const Movies = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const query = searchParams.get('query') ?? '';
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -17,9 +17,7 @@ export const Movies = () => {
     if (inputValue === '') {
       return;
     }
-
-    setQuery(inputValue);
-    // setSearchParams({ query: inputValue });
+    setSearchParams({ query: inputValue });
 
     event.currentTarget.reset();
   };
@@ -36,3 +34,5 @@ export const Movies = () => {
     </div>
   );
 };
+
+export default Movies;

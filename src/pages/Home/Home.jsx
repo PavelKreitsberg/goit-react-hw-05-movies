@@ -2,7 +2,7 @@ import { TrandingGallery } from 'components/TrandingGallery/TrandingGallery';
 
 import css from '../Home/Home.module.css';
 
-export const Home = () => {
+const Home = () => {
   return (
     <div className={css.Home}>
       <h1>Trending today</h1>
@@ -10,3 +10,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

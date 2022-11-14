@@ -1,13 +1,16 @@
 import { fetchMovieById } from 'services/API';
-import { useState, useEffect } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { useState, useEffect, Suspense } from 'react';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import css from '../MovieDetails/MovieDetails.module.css';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState('');
+  const location = useLocation();
+
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     fetchMovieById(id).then(response => setMovie(response));
@@ -22,7 +25,7 @@ export const MovieDetails = () => {
 
   return (
     <div className={css.MovieDetailsSection}>
-      <Link to="/">
+      <Link to={backLinkHref}>
         <button type="button" className={css.button}>
           Go back
         </button>
@@ -52,11 +55,14 @@ export const MovieDetails = () => {
             <Link className="navigation__item" to="reviews">
               Reviews
             </Link>
-
-            <Outlet />
           </div>
         </div>
       )}
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
+
+export default MovieDetails;
